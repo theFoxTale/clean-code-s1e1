@@ -16,7 +16,7 @@ body {
   width: 100%;
 }
 
-.image-wrapper .more-info-link {
+.image-wrapper .details-link {
   font-family: fantasy, cursive;
 }
 
@@ -26,19 +26,20 @@ body {
   }
 }
 
-.centered-main-page-element {
+.content-wrapper {
   display: block;
   width: 500px;
   margin: 0 auto 0;
 }
 
-.task {
+.task-label,
+.task-input {
   width: 56%;
   display: inline-block;
   flex-grow: 1;
 }
 
-.task-row-wrapper {
+.task-wrapper {
   display: flex;
 }
 
@@ -140,13 +141,13 @@ li > input[type="text"] {
   width: 226px;
 }
 
-button.delete img {
+button.delete-button img {
   height: 2em;
   transform: rotateZ(45deg);
   transition: transform 200ms ease-in;
 }
 
-button.delete img:hover {
+button.delete-button img:hover {
   transform: rotateZ(0);
 }
 
