@@ -6,63 +6,77 @@
   <link rel="stylesheet" href="style.css" media="screen">
 </head>
 <body class="container">
-  <div class="image-wrapper">
+  <figure class="image-wrapper">
     <img
         class="header-image"
         src="./assets/eisenhower-matrix.jpg"
         alt="Eisenhower Matrix diagram showing four quadrants for task prioritization"
     />
-    <a
-        class="details-link"
-        href="https://goal-life.com/page/method/matrix-eisenhower"
-    >Want more details?</a>
-  </div>
+    <figcaption>
+      <a
+          class="details-link"
+          target="_blank"
+          href="https://goal-life.com/page/method/matrix-eisenhower"
+      >Want more details?</a>
+    </figcaption>
+  </figure>
 
-  <div class="content-wrapper">
-    <p>
+  <main class="content-wrapper">
+    <section>
       <h3 class="list-header">Add Item</h3>
       <div class="task-wrapper">
+        <label for="new-task" class="hidden-label">New task description</label>
         <input type="text" id="new-task" class="task-input">
         <button class="add-button">Add</button>
       </div>
-    </p>
+    </section>
 
-    <h3 class="list-header">Todo</h3>
-    <ul id="uncompleted-tasks" class="tasks-list">
-      <li class="one-task">
-        <input type="checkbox" class="task-checkbox">
-        <label class="task-label">Pay Bills</label>
-        <input type="text" class="task-input">
-        <button class="edit-button">Edit</button>
-        <button class="delete-button">
-          <img class="remove-image" src="./assets/remove.svg" alt="delete this task">
-        </button>
-      </li>
+    <section>
+      <h3 class="list-header">Todo</h3>
+      <ul id="uncompleted-tasks" class="tasks-list">
+        <li class="one-task">
+          <label class="task-label">
+            <input type="checkbox" class="task-checkbox">
+            <span class="task-text">Pay Bills</span>
+            <input type="text" class="task-input">
+          </label>
+          <button class="edit-button">Edit</button>
+          <button class="delete-button">
+            <img class="remove-image" src="./assets/remove.svg" alt="delete this task">
+          </button>
+        </li>
 
-      <li class="one-task edit-mode">
-        <input type="checkbox" class="task-checkbox">
-        <label class="task-label">Go Shopping</label>
-        <input type="text" value="Go Shopping" class="task-input">
-        <button class="edit-button">Save</button>
-        <button class="delete-button">
-          <img class="remove-image" src="./assets/remove.svg" alt="delete this task">
-        </button>
-      </li>
-    </ul>
+        <li class="one-task edit-mode">
+          <label class="task-label">
+            <input type="checkbox" class="task-checkbox">
+            <span class="task-text">Go Shopping</span>
+            <input type="text" value="Go Shopping" class="task-input">
+          </label>
+          <button class="edit-button">Save</button>
+          <button class="delete-button">
+            <img class="remove-image" src="./assets/remove.svg" alt="delete this task">
+          </button>
+        </li>
+      </ul>
+    </section>
 
-    <h3 class="list-header">Completed</h3>
-    <ul id="completed-tasks" class="tasks-list">
-      <li class="one-task">
-        <input type="checkbox" class="task-checkbox" checked>
-        <label class="task-label">See the Doctor</label>
-        <input type="text" class="task-input">
-        <button class="edit-button">Edit</button>
-        <button class="delete-button">
-          <img class="remove-image" src="./assets/remove.svg" alt="delete this task">
-        </button>
-      </li>
-    </ul>
-  </div>
+    <section>
+      <h3 class="list-header">Completed</h3>
+      <ul id="completed-tasks" class="tasks-list">
+        <li class="one-task">
+          <label class="task-label">
+            <input type="checkbox" class="task-checkbox" checked>
+            <span class="task-text">See the Doctor</span>
+            <input type="text" class="task-input">
+          </label>
+          <button class="edit-button">Edit</button>
+          <button class="delete-button">
+            <img class="remove-image" src="./assets/remove.svg" alt="delete this task">
+          </button>
+        </li>
+      </ul>
+    </section>
+  </main>
 
   <script src="app.js"></script>
 </body>

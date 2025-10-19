@@ -17,15 +17,18 @@ const createNewTaskElement = function (taskString) {
   const listItem = document.createElement('li');
   listItem.className = 'one-task';
 
+  const label = document.createElement('label');
+  label.className = 'task-label';
+
   //input (checkbox)
   const checkBox = document.createElement('input');
   checkBox.type = 'checkbox';
   checkBox.className = 'task-checkbox';
 
   //label
-  const label = document.createElement('label');
-  label.innerText = taskString;
-  label.className = 'task-label';
+  const span = document.createElement('span');
+  span.innerText = taskString;
+  span.className = 'task-text';
 
   //input (text)
   const editInput = document.createElement('input');
@@ -48,9 +51,11 @@ const createNewTaskElement = function (taskString) {
   deleteButton.appendChild(deleteButtonImg);
 
   //and appending.
-  listItem.appendChild(checkBox);
+  label.appendChild(checkBox);
+  label.appendChild(span);
+  label.appendChild(editInput);
+
   listItem.appendChild(label);
-  listItem.appendChild(editInput);
   listItem.appendChild(editButton);
   listItem.appendChild(deleteButton);
 
@@ -58,12 +63,12 @@ const createNewTaskElement = function (taskString) {
 };
 
 
-const taskIncomplete = function(){
+const taskUncompleted = function(){
   console.log('Incomplete Task...');
   //Mark task as incomplete.
   //When the checkbox is unchecked
   //Append the task list item to the #uncompleted-tasks.
-  const listItem = this.parentNode;
+  const listItem = this.closest('.one-task');
   uncompletedTasksHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskCompleted);
 };
@@ -73,9 +78,9 @@ const taskCompleted = function(){
   console.log('Complete Task...');
 
   //Append the task list item to the #completed-tasks
-  const listItem = this.parentNode;
+  const listItem = this.closest('.one-task');
   completedTasksHolder.appendChild(listItem);
-  bindTaskEvents(listItem, taskIncomplete);
+  bindTaskEvents(listItem, taskUncompleted);
 };
 
 const addTask = function () {
@@ -99,7 +104,7 @@ const editTask = function () {
   const listItem = this.parentNode;
 
   const editInput = listItem.querySelector('.task-input');
-  const label = listItem.querySelector('.task-label');
+  const taskText = listItem.querySelector('.task-text');
   const editBtn = listItem.querySelector('.edit-button');
   const containsClass = listItem.classList.contains('edit-mode');
 
@@ -107,10 +112,10 @@ const editTask = function () {
   if (containsClass) {
     //switch to .edit-mode
     //label becomes the inputs value.
-    label.innerText = editInput.value;
+    taskText.innerText = editInput.value;
     editBtn.innerText = 'Edit';
   } else {
-    editInput.value = label.innerText;
+    editInput.value = taskText.innerText;
     editBtn.innerText = 'Save';
   }
 
@@ -166,7 +171,7 @@ for (let i = 0; i < uncompletedTasksHolder.children.length; i++) {
 //cycle over completedTasksHolder ul list items
 for (let i= 0; i < completedTasksHolder.children.length; i++) {
   //bind events to list items children(tasksUncompleted)
-  bindTaskEvents(completedTasksHolder.children[i], taskIncomplete);
+  bindTaskEvents(completedTasksHolder.children[i], taskUncompleted);
 }
 
 // Issues with usability don't get seen until they are in front of a human tester.

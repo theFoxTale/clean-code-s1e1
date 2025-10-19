@@ -44,7 +44,7 @@
   flex-grow: 1;
 }
 
-.task-label {
+.task-text {
   padding-left: 10px;
   box-sizing: border-box;
   font-size: 18px;
@@ -144,7 +144,7 @@
 }
 
 /* Completed */
-#completed-tasks .task-label {
+#completed-tasks .task-text {
   text-decoration: line-through;
   color: #888;
 }
@@ -159,6 +159,10 @@
   width: 224px;
 }
 
-.edit-mode .task-label {
+.edit-mode .task-text {
+  display: none;
+}
+
+.hidden-label {
   display: none;
 }
