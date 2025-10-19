@@ -18,35 +18,35 @@ var completedTasksHolder=document.getElementById("completed-tasks");//completed-
 var createNewTaskElement=function(taskString){
 
     var listItem=document.createElement("li");
+    listItem.className = 'one-task';
 
     //input (checkbox)
     var checkBox=document.createElement("input");//checkbx
+    checkBox.type="checkbox";
+    checkBox.className = "task-checkbox";
+
     //label
     var label=document.createElement("label");//label
+    label.innerText=taskString;
+    label.className='task-label';
+
     //input (text)
     var editInput=document.createElement("input");//text
+    editInput.type="text";
+    editInput.className="task-input";
+
     //button.edit
     var editButton=document.createElement("button");//edit button
+    editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
+    editButton.className="edit-button";
 
     //button.delete
     var deleteButton=document.createElement("button");//delete button
     var deleteButtonImg=document.createElement("img");//delete button image
-
-    label.innerText=taskString;
-    label.className='task';
-
-    //Each elements, needs appending
-    checkBox.type="checkbox";
-    editInput.type="text";
-    editInput.className="task";
-
-    editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
-    editButton.className="edit-button";
-
     deleteButton.className="delete-button";
     deleteButtonImg.src='./remove.svg';
+    deleteButtonImg.className = 'remove-image';
     deleteButton.appendChild(deleteButtonImg);
-
 
     //and appending.
     listItem.appendChild(checkBox);
